@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>讀書計畫｜課程示範</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><div><small>CLAUDE CLASS · 課程示範</small><h1>我的讀書計畫</h1><p>把筆記變成每週任務，再用測驗確認學會了什麼。</p></div><span class="badge">資料存在這台裝置</span></header>
+  <nav aria-label="功能選單"><button data-page="setup" class="active">① 建立計畫</button><button data-page="plan">② 每週安排</button><button data-page="quiz">③ 練習測驗</button><button data-page="progress">④ 學習進度</button></nav>
+  <main>
+    <section id="setup" class="page active"><div class="grid"><article class="card"><h2>輸入學習來源</h2><p class="hint">將 Notion、課本或講義的重點貼成文字。示範版不讀取外部帳號。</p><label>科目或主題<input id="subject" placeholder="例如：國二自然｜光合作用"></label><label>教材重點<textarea id="notes" rows="8" placeholder="貼上課本、講義或 Notion 筆記的重點"></textarea></label><label>來源連結（選填）<input id="source" type="url" placeholder="https://..."></label></article><article class="card"><h2>安排時間</h2><p class="hint">填好後會產生七天任務，可以下載行事曆檔加入 Google Calendar。</p><label>每日可讀書分鐘數<input id="minutes" type="number" min="10" max="180" value="30"></label><label>一週要讀幾天<input id="days" type="number" min="1" max="7" value="5"></label><button id="create" class="primary">產生本週計畫</button><p id="setup-message" role="status"></p></article></div></section>
+    <section id="plan" class="page"><div class="section-head"><div><h2>本週讀書安排</h2><p class="hint">勾選完成後，進度會同步到右側的學習摘要。</p></div><button id="calendar" class="secondary">下載 Google Calendar 可匯入檔</button></div><div id="plan-list" class="task-list"></div></section>
+    <section id="quiz" class="page"><div class="grid"><article class="card"><h2>重點練習</h2><p class="hint">先用筆記做一個自我檢查。按「答對／待複習」可記錄結果。</p><div id="quiz-local"></div></article><article class="card"><h2>自備 Gemini 金鑰出題</h2><p class="hint">從 Google AI Studio 建立自己的金鑰。本頁只在這次開啟期間使用，不會儲存金鑰；費用與額度取決於你的 Google 專案方案。</p><form id="ai-form"><label>你的 Gemini API 金鑰<input id="ai-key" type="password" autocomplete="off" spellcheck="false" required placeholder="貼上自己的 API 金鑰"></label><button id="ai-submit" class="primary">用我的教材產生 3 題</button></form><p class="hint">瀏覽器會直接把金鑰送到 Google Gemini API。金鑰可在自己的瀏覽器開發者工具中看到，請勿在共用電腦使用付費金鑰。</p><p id="ai-message" role="status"></p><pre id="ai-result" hidden></pre></article></div></section>
+    <section id="progress" class="page"><div class="grid"><article class="card"><h2>我的進度</h2><div id="student-summary"></div></article><article class="card"><h2>家長／老師視角</h2><p class="hint">同一台裝置開啟即可看摘要；示範版沒有帳號、遠端同步或通知。</p><div id="parent-summary"></div></article></div></section>
+  </main>
+  <footer>課程最小原型 · 本機儲存 · 不上傳教材到本站</footer>
+  <script src="app.js"></script>
+</body>
+</html>

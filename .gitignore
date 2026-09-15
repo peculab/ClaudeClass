@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# 課堂原始草稿保留在本機，不隨公開 GitHub Pages 發布。
+ref/
